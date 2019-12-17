@@ -1,0 +1,232 @@
+@import "./scss/fontawesome.scss";
+@import "./scss/solid.scss";
+@import "./scss/brands.scss";
+
+$font-big:18px;
+$font-small:16px;
+$font-family:Arial,helvetica;
+$color-white:#fff;
+$color-black:black;
+$margin-left:20%;
+
+@mixin buttons{
+    background-color: rgb(255,0,0);
+    color: $color-white;
+    width: 200px;
+    padding: 5px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1em;
+    box-shadow: 0px 5px 10px black;
+    outline: none;
+}
+
+@mixin center($flexDirection){
+    display: flex;
+    flex-direction: $flexDirection;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin lineHeightAndWidth($fontSize){
+    line-height:calc(#{$fontSize * 1.618});
+    width:calc(#{(65*$fontSize)/1.618});
+}
+
+*{
+    font-size: $font-big;
+}
+
+html,body{
+    box-sizing: border-box;
+    font-family: $font-family;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+button{
+    @include buttons();
+    &:hover{
+        cursor: pointer;
+        background-color: rgb(218, 29, 29);
+    }
+}
+
+a{
+    text-decoration: none;
+}
+
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+li{
+    display: inline-block;
+    padding: 10px;
+}
+
+
+.l-nav{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 8vh;
+    color:$color-white;
+}
+
+.l-nav ul li:hover{
+    cursor: pointer;
+}
+
+.l-serie-info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+}
+
+.l-serie-info .m-intro-text{
+    color: $color-white;
+    margin-left: $margin-left;
+    @include lineHeightAndWidth($font-big);
+   
+}
+
+.l-serie-container{
+    overflow: auto;
+    background-color: $color-black;
+    color: $color-white;
+    box-shadow: -10px -30px 25px 5px rgba(0, 0, 0, 0.829);
+
+}
+
+.l-foot{
+    color: $color-white;
+    @include center(column);
+    width: 100%;
+    background-color: $color-black;
+}
+
+.m-foot-info{
+    display: flex;
+    padding: 20px;
+}
+
+.m-foot-info div{
+    width: 300px;
+    padding: 10px;
+    text-align: center;
+}
+
+.m-foot-info div:last-child{
+    border-left: 1px solid rgba(151, 151, 151, 0.6);
+}
+
+.m-copyright{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.m-icons{
+    @include center(row);
+    padding: 30px;
+    width: 100%;
+}
+
+.m-header{
+    margin-top: 10px;
+    margin-left: $margin-left;
+}
+
+.m-icon-git{
+    color:$color-white;
+}
+
+.m-icon-git:hover{
+    color:$color-white;
+}
+
+.m-icon-linkdin{
+    margin-left: 10px;
+    color:  rgb(40,103,178);
+}
+
+.m-icon-linkdin:hover{
+    color:  rgb(40,103,178);
+}
+
+.link{
+    width: 100%;
+    display: inline-block;
+    background-color: rgba(54, 54, 54, 0.6);
+    text-align: center;
+}
+
+.link:hover{
+    cursor: pointer;
+}
+
+.owl-carousel .owl-stage {
+    display: flex;
+}
+
+.owl-carousel .owl-item img {
+    width: 100%;
+    height: 250px;
+}
+
+@media(max-width:1084px){
+    .owl-carousel .owl-item img {
+        height: 150px;
+    }
+}
+
+@media (max-width:700px){
+    *{
+        font-size: $font-small;
+    }
+
+    .l-serie-info{
+        @include center(row)
+    }
+
+    .l-serie-info button{
+        margin: 6px;
+    }
+
+    .l-serie-info .m-intro-text{
+        margin: 0;
+        @include lineHeightAndWidth($font-small);
+        @include center(column);
+        text-align: center;
+    }
+
+    .m-header{
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .m-foot-info{
+        flex-direction: column;
+    }
+
+    .m-foot-info div:last-child{
+        border-left: none;
+        border-top: 1px solid rgba(151, 151, 151, 0.6);
+    }
+
+    .owl-carousel .owl-item img {
+        height: 100px;
+    }
+}

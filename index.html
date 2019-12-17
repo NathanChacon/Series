@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./assets/bootstrap.min.css"> 
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Series</title>
+</head>
+<body>
+        <nav class="l-nav">
+                <ul>
+                    <li>Sobre</li>
+                    <li>Contato</li>
+                    <li>Contratar</li>
+                </ul>
+        </nav>
+    <section class="l-serie-info">
+        <div class="m-intro-text">
+            
+       </div>
+    </section>
+
+    <section class="l-serie-container"> 
+        <header class="m-header">
+            <h3>Assista também: </h3>
+        </header>
+        <div class="owl-carousel owl-theme owl-loaded">
+            <div class="owl-stage-outer">
+                <div class="owl-stage">
+                  
+                </div>
+            </div>
+    </section>
+
+    <footer class="l-foot">
+        <div class="m-foot-info">
+            <div>
+                <h4>Contato</h4>
+                <ul>
+                    <li>(21)99474-1161</li>
+                    <li>nathanchacon321@gmail.com</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Sobre</h4>
+                <p>Projeto que tem o papel de representar o design de um site feito para assistir séries/animes</p>
+            </div>
+        </div>
+        <div class="m-icons">
+            <a href="https://github.com/NathanChacon?tab=repositories" target="blank" class="m-icon-git"><i class="fab fa-github fa-3x"></i></a>
+            <a href="http://linkedin.com/in/nathanchacon" target="blank" class="m-icon-linkedin"><i class="fab fa-linkedin fa-3x m-icon-linkdin"></i></a>
+        </div>
+        <div class="m-copyright">
+                <p>@todos os direitos reservados</p>
+        </div>
+    </footer>
+
+
+    <script src="./assets/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="./assets/bootstrap.min.js"></script>
+    <script src="./assets//OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
+        const carouselItems = [
+        {
+            id:1,
+            img:"./assets/img/inuyasha.jpg",
+            title:'Inuyasha',
+            description:"Inuyasha é um meio-youkai (metade humano, metade cachorro) que foi lacrado numa árvore pela sacerdotisa Kikyou, a mulher que amava. Porém, quando Kagome, uma colegial da era “presente”, volta no tempo, faz com que Inuyasha volte à vida desfazendo o lacre."    
+        },
+        {
+            id:2,
+            img:"./assets/img/yuyuhakusho.jpg",
+            title:'Yu Yu Hakusho',
+            description:"é uma série de mangá shonen escrita e ilustrada por Yoshihiro Togashi que conta a história de Yusuke Urameshi, um delinquente de quatorze anos de idade que é atingido e morto por um carro ao tentar salvar a vida de uma criança. Após realizar alguns testes apresentados a ele por Koenma, o filho do governante do submundo, Yusuke é revivido e é lhe dado o título de Detetive Sobrenatural, com o qual deve investigar vários casos envolvendo demônios e fantasmas no mundo humano."
+        },
+        {
+            id:3,
+            img:"./assets/img/bokunohero.jpg",
+            title:'Boku No Hero',
+            description:"A história de Clannad gira em torno de Tomoya Okazaki, um estudante do terceiro ano do ensino médio que não gosta sua vida.A mãe de Tomoya, Atsuko, morreu quando Tomoya era pequeno, deixando seu pai, Naoyuki, para cuidá-lo."
+        },
+        {
+            id:4,
+            img:"./assets/img/clannadImg.jpg",
+            title:'Clannad',
+            description:"A história de Clannad gira em torno de Tomoya Okazaki, um estudante do terceiro ano do ensino médio que não gosta sua vida.A mãe de Tomoya, Atsuko, morreu quando Tomoya era pequeno, deixando seu pai, Naoyuki, para cuidá-lo."
+        },
+        {
+            id:5,
+            img:"./assets/img/beastars.jpg",
+            title:'Beastars',
+            description:"A história se passa em um mundo com animais civilizados e completamente antropomórficos com uma dívida cultural entre carnívoros e herbívoros. A série toma seu nome da classificação instituída de Beastars, um indivíduo dotado de talento enorme, serviço e notoriedade. Legosi, um grande lobo cinzento, é um estudante tímido e quieto da Escola Cherryton, onde vive em um dormitório com muitos outros estudantes carnívoros, incluindo seu amigo labrador extrovertido, Jack."
+        }
+    ]
+
+
+    let listItem = ''
+    const serieInfo = $('.l-serie-info')
+    const introductionItem = $('.m-intro-text')
+
+    const loadCarouselItems = () => {
+        $(carouselItems).each((i,item) =>{
+            listItem += `<div class='owl-item'>` + `<img src=${item.img}>` + `<a class='link' id=${item.id}>` + "Ver Info" + "</a>" + "</div>";
+        })
+        $('.owl-stage').html(listItem)
+    }
+
+    loadCarouselItems()
+
+    $( document ).ready(function() {
+        loadNewIntroductionElement(carouselItems[0])
+    });
+
+    $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            dots:false,
+            autoplay:true,
+            autoplayTimeout:5000,
+            responsiveClass:true,
+            navigation:true,
+            responsive:{
+                0:{
+                    items:3,
+                    nav:true
+                },
+                600:{
+                    items:4,
+                    nav:true,
+                    loop:true
+                },
+                1000:{
+                    items:5,
+                    nav:true,
+                    loop:true
+                }
+            }
+})
+
+$('.link').click((e) => {
+    const id = e.target.id
+    console.log('ok')
+    $(carouselItems).each((i,item) => {
+        if(item.id == id){
+            loadNewIntroductionElement(item)
+            return
+        }  
+    })
+})
+
+const loadNewIntroductionElement = (item) => {
+    serieInfo.fadeOut()
+    loadInformation(item)
+}
+
+const loadInformation = (item) => {
+        setTimeout(() => {
+            introductionItem.html('<h1>' + item.title + '</h1>' + '<p>' + item.description + '</p>' + '<button>' + "Assistir" + "</button>" + " " +'<button>' + "Trailer" + "</button>")
+            serieInfo.css({
+            'background-image': `linear-gradient(to right, rgba(25, 25, 26, 0.6), rgba(25, 25, 26, 0.6)), url(${item.img})`
+});
+            serieInfo.fadeIn()
+        },400)
+}
+</script>
+</body>
+</html>
